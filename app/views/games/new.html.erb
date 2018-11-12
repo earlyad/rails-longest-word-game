@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <h1>Games#new</h1>
+  <p>Find me in app/views/games/new.html.erb</p>
+  <div class="letters">
+      <% @letters.each do |letter|%>
+      <p><%= letter %></p>
+      <% end %>
+  </div>
+
+  <div class="user-input">
+    <p>What is the longest word you can find?</p>
+    <div>
+      <form action="/score" method="post" class="input-group mb-3">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :letters, @letters.join %>
+        <input type="text" name="guess" class="form-control" placeholder="Type a word..." aria-label="Type a word" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <input type="submit" class="btn btn-outline-secondary" type="button" value="Play">
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
